@@ -26,7 +26,6 @@ public:
         .WindowWidth = 800,
         .WindowHeight = 600,
         .EnableGUI = false,
-        .IsHeadless = false,
         .GraphicsAPI = Nodens::EGraphicsAPI::Vulkan,
     };
 
