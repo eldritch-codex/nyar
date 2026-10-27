@@ -237,15 +237,17 @@ private:
         commandBuffer.beginRendering(renderingInfo);
         commandBuffer.bindPipeline(vk::PipelineBindPoint::eGraphics, *graphicsPipeline);
         // Dynamic viewport and scissor state must be set during recording.
-        commandBuffer.setViewport(0,
-                                  vk::Viewport{
-                                      .x = 0.f,
-                                      .y = 0.f,
-                                      .width = static_cast<float>(swapChainExtent.width),
-                                      .height = static_cast<float>(swapChainExtent.height),
-                                      .minDepth = 0.f,
-                                      .maxDepth = 1.f,
-                                  });
+        commandBuffer.setViewport(
+            0,
+            vk::Viewport{
+                .x = 0.f,
+                .y = 0.f,
+                .width = static_cast<float>(swapChainExtent.width),
+                .height = static_cast<float>(swapChainExtent.height),
+                .minDepth = 0.f,
+                .maxDepth = 1.f,
+            }
+        );
         commandBuffer.setScissor(0, vk::Rect2D{vk::Offset2D{0, 0}, swapChainExtent});
 
         // Vertex shader generates triangle vertices from vertex index.
