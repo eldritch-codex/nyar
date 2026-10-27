@@ -3,6 +3,10 @@
 
 Nyar uses the commit conventions of [Nodens](https://github.com/eldritch-codex/nodens/blob/main/docs/COMMITTING.md): `type(scope): what the change does`, one thing per commit, explicit paths when staging, and a `!` before the colon for a breaking change. That page has the types and the reasoning. [Branching and releases](BRANCHING.md) covers where a change lives.
 
+## Route
+
+The type decides whether a commit goes straight to `main` or through a pull request: `docs`, `style`, `chore` and tooling `build` go direct; `feat`, `fix`, `refactor`, `perf`, `ci` and `build` that changes `CMakeLists.txt` go by pull request. [Branching and releases](BRANCHING.md#which-route) has the table and the check script to run before a direct commit.
+
 ## Scopes
 
 Name the area touched, and leave the scope out when the change spans the whole project.
@@ -18,7 +22,7 @@ Name the area touched, and leave the scope out when the change spans the whole p
 
 ## Pull request titles
 
-Pull requests are squash-merged, so the PR title becomes the commit on `main`. Write it in the commit format and check it before merging: GitHub appends the PR number.
+Only the pull request route has a PR title. Pull requests are squash-merged, so the PR title becomes the commit on `main`. Write it in the commit format and check it before merging: GitHub appends the PR number.
 
 ## The changelog
 
