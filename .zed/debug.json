@@ -1,0 +1,27 @@
+// Project-local debug scenarios.
+//
+// Zed runs on the host; the CodeLLDB adapter runs inside the dev container
+// (see settings.json) and talks to Zed over stdio.
+//
+// For more documentation on how to configure debug scenarios,
+// see: https://zed.dev/docs/debugger
+[
+  {
+    "label": "Debug NyarTestApp (Docker)",
+    "adapter": "CodeLLDB",
+    "request": "launch",
+    "build": {
+      "command": "bash",
+      "args": [
+        "-c",
+        "devcontainer up --workspace-folder . --config .devcontainer/devcontainer.json && devcontainer exec --workspace-folder . --config .devcontainer/devcontainer.json cmake --build build",
+      ],
+      "cwd": "$ZED_WORKTREE_ROOT",
+    },
+    "program": "$ZED_WORKTREE_ROOT/build/examples/nyar-test-app/nyar-test-app",
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "args": [],
+    "env": {},
+    "stopOnEntry": false,
+  },
+]

@@ -1,0 +1,31 @@
+{
+  "dap": {
+    "CodeLLDB": {
+      "binary": "devcontainer",
+      "args": [
+        "exec",
+        "--workspace-folder", ".",
+        "--config", ".devcontainer/devcontainer.json",
+        "/opt/codelldb/adapter/codelldb"
+      ]
+    }
+  },
+  "languages": {
+    "Slang": {
+      "format_on_save": "on",
+      "formatter": "language_server"
+    }
+  },
+
+  "lsp": {
+    "clangd": {
+      "binary": {
+        "arguments": [
+          "--experimental-modules-support",
+          "--compile-commands-dir=build",
+          "--header-insertion=never"
+        ]
+      }
+    },
+  }
+}
