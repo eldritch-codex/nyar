@@ -10,7 +10,7 @@ module;
 #include <cstdint>
 
 export module NyarLayer;
-import Nodens.VulkanContext;
+import Nodens.VulkanBackend;
 import nodens;
 import std;
 
@@ -39,21 +39,21 @@ public:
     // void OnImGuiRender(Nodens::TimeStep ts) override;
 
 private:
-    /// @brief Borrows Nodens Vulkan context and swapchain resources.
+    /// @brief Borrows the Nodens Vulkan backend and swapchain resources.
     void attachToNodensWindow()
     {
         auto& nodensWindow = Nodens::Application::Get().GetWindow();
-        auto* graphicsContext = nodensWindow.GetGraphicsContext();
-        nodensVulkanContext = dynamic_cast<Nodens::VulkanContext*>(graphicsContext);
-        if (!nodensVulkanContext)
+        auto* graphicsBackend = nodensWindow.GetBackend();
+        nodensVulkanBackend = dynamic_cast<Nodens::VulkanBackend*>(graphicsBackend);
+        if (!nodensVulkanBackend)
             throw std::runtime_error{"NyarLayer requires a Nodens Vulkan window"};
 
-        device = &nodensVulkanContext->GetDeviceRAII();
+        device = &nodensVulkanBackend->GetDeviceRAII();
 
-        swapChainImages = &nodensVulkanContext->GetSwapchainImages();
-        swapChainImageViews = &nodensVulkanContext->GetSwapchainImageViews();
-        swapChainExtent = nodensVulkanContext->GetSwapchainExtent();
-        swapChainSurfaceFormat = nodensVulkanContext->GetSwapchainSurfaceFormat();
+        swapChainImages = &nodensVulkanBackend->GetSwapchainImages();
+        swapChainImageViews = &nodensVulkanBackend->GetSwapchainImageViews();
+        swapChainExtent = nodensVulkanBackend->GetSwapchainExtent();
+        swapChainSurfaceFormat = nodensVulkanBackend->GetSwapchainSurfaceFormat();
     }
 
     /// @brief Reads binary shader data relative to process working directory.
@@ -216,7 +216,7 @@ private:
     /// @param imageIndex Swapchain image rendered by the command buffer.
     void recordCommandBuffer(uint32_t imageIndex)
     {
-        const auto& commandBuffer = nodensVulkanContext->GetActiveCommandBuffer();
+        const auto& commandBuffer = nodensVulkanBackend->GetActiveCommandBuffer();
 
         vk::ClearValue clearColor = vk::ClearColorValue{0.0f, 0.0f, 0.0f, 1.0f};
         vk::RenderingAttachmentInfo renderingAttachmentInfo = {
@@ -259,23 +259,23 @@ private:
     ///          Nyar only appends its scene commands here.
     void drawFrame()
     {
-        if (!nodensVulkanContext->IsFrameActive())
+        if (!nodensVulkanBackend->IsFrameActive())
             return;
 
-        const auto imageIndex = nodensVulkanContext->GetCurrentImageIndex();
-        swapChainExtent = nodensVulkanContext->GetSwapchainExtent();
-        swapChainSurfaceFormat = nodensVulkanContext->GetSwapchainSurfaceFormat();
+        const auto imageIndex = nodensVulkanBackend->GetCurrentImageIndex();
+        swapChainExtent = nodensVulkanBackend->GetSwapchainExtent();
+        swapChainSurfaceFormat = nodensVulkanBackend->GetSwapchainSurfaceFormat();
         recordCommandBuffer(imageIndex);
     }
 
     /// @brief Stops GPU work and releases Vulkan rendering resources.
     void cleanup()
     {
-        nodensVulkanContext->WaitIdle();
+        nodensVulkanBackend->WaitIdle();
     }
 
 private:
-    Nodens::VulkanContext* nodensVulkanContext{nullptr}; ///< Borrowed Nodens Vulkan context.
+    Nodens::VulkanBackend* nodensVulkanBackend{nullptr}; ///< Borrowed Nodens Vulkan backend.
 
     const vk::raii::Device* device{nullptr}; ///< Borrowed logical device owned by Nodens.
 

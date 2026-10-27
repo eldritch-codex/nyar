@@ -9,6 +9,7 @@
 #include <cstdio>
 #include <cstdlib>
 
+import std;
 import NyarLayer;
 import vulkan;
 import nodens;
@@ -21,7 +22,7 @@ class NyarTestApp : public Nodens::Application
 {
 public:
     /// Application configuration passed to the Nodens base class.
-    static inline const Nodens::FApplicationSpecification appSpecifications = {
+    static inline const Nodens::FApplicationConfig appConfig = {
         .Name = "Nyar Vulkan Development",
         .WindowWidth = 800,
         .WindowHeight = 600,
@@ -30,7 +31,7 @@ public:
     };
 
     /// @brief Constructs application and installs the Vulkan layer.
-    NyarTestApp() : Application(appSpecifications)
+    NyarTestApp() : Application(appConfig)
     {
         PushLayer(new NyarLayer{});
     }

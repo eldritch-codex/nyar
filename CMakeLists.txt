@@ -23,13 +23,12 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 # Dependencies
 # -----------------------------------------------------------------------------
 find_program(SLANGC_EXECUTABLE NAMES slangc REQUIRED)
-find_package(glfw3 REQUIRED)
 find_package(Vulkan REQUIRED)
 
 include(FetchContent)
 FetchContent_Declare(nodens
-    GIT_REPOSITORY https://github.com/EldritchCodex/Nodens.git
-    GIT_TAG dev
+    GIT_REPOSITORY https://github.com/eldritch-codex/nodens.git
+    GIT_TAG        v0.2.0 # A release tag; change it to move to a newer Nodens release
 )
 FetchContent_MakeAvailable(nodens)
 
