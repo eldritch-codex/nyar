@@ -5,7 +5,7 @@ Nyar uses the commit conventions of [Nodens](https://github.com/eldritch-codex/n
 
 ## Route
 
-The type decides whether a commit goes straight to `main` or through a pull request: `docs`, `style`, `chore` and tooling `build` go direct; `feat`, `fix`, `refactor`, `perf`, `ci` and `build` that changes `CMakeLists.txt` go by pull request. [Branching and releases](BRANCHING.md#which-route) has the table and the check script to run before a direct commit.
+Every change goes through a pull request and is squash-merged, whatever its type, so the pull request title is the commit on `main`. [Branching and releases](BRANCHING.md) has the flow.
 
 ## Scopes
 
