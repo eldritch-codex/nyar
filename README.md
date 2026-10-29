@@ -18,9 +18,9 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/eldritch-codex/nodens/wiki/Getting-Started">Getting Started</a> ·
+  <a href="https://github.com/eldritch-codex/nodens/blob/main/docs/guide/getting-started.md">Getting Started</a> ·
   <a href="docs/BRANCHING.md">Branching</a> ·
-  <a href="https://github.com/eldritch-codex/nodens/wiki">Nodens Wiki</a> ·
+  <a href="https://github.com/eldritch-codex/nodens/blob/main/docs/guide/README.md">Nodens Guide</a> ·
   <a href="https://github.com/eldritch-codex/nodens">Nodens</a>
 </p>
 
@@ -51,9 +51,9 @@ Nyar uses EldritchCodex's shared Linux graphics image through `.devcontainer/dev
 ghcr.io/eldritch-codex/arch-dev:main
 ```
 
-Open Nyar in Zed or Visual Studio Code, then reopen it in the Dev Container. NVIDIA hosts need a working host driver and NVIDIA Container Toolkit. Intel/AMD hosts use the `/dev/dri` configuration. See the [Nodens toolchain guide](https://github.com/eldritch-codex/nodens/wiki/Building-and-Toolchain) for GPU setup details.
+Open Nyar in Zed or Visual Studio Code, then reopen it in the Dev Container. NVIDIA hosts need a working host driver and NVIDIA Container Toolkit. Intel/AMD hosts use the `/dev/dri` configuration. See the [Nodens toolchain guide](https://github.com/eldritch-codex/nodens/blob/main/docs/guide/building-and-toolchain.md) for GPU setup details.
 
-To keep Zed on the host, install the [Dev Containers CLI](https://github.com/devcontainers/cli) (`npm install -g @devcontainers/cli`). The `.zed` tasks and the debugger run in the container through it; start with the **Docker: Start** task. The tasks use `.devcontainer/devcontainer.json`, which mounts the project at its host path. See [Zed outside the container](https://github.com/eldritch-codex/nodens/wiki/Building-and-Toolchain#zed-outside-the-container).
+To keep Zed on the host, install the [Dev Containers CLI](https://github.com/devcontainers/cli) (`npm install -g @devcontainers/cli`). The `.zed` tasks and the debugger run in the container through it; start with the **Docker: Start** task. The tasks use `.devcontainer/devcontainer.json`, which mounts the project at its host path. See [Zed outside the container](https://github.com/eldritch-codex/nodens/blob/main/docs/guide/building-and-toolchain.md#zed-outside-the-container).
 
 ## Acknowledgements
 
