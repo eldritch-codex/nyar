@@ -26,7 +26,7 @@ public:
         .Name = "Nyar Vulkan Development",
         .WindowWidth = 800,
         .WindowHeight = 600,
-        .EnableGUI = false,
+        .Presentation = Nodens::EPresentation::Window,
         .GraphicsAPI = Nodens::EGraphicsAPI::Vulkan,
     };
 
