@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="https://github.com/eldritch-codex/nyar/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/eldritch-codex/nyar/ci.yml?branch=main&amp;style=flat-square&amp;label=CI" alt="CI status"></a>
-  <img src="https://img.shields.io/badge/Nodens-0.2.0-blue?style=flat-square" alt="Nodens 0.2.0">
+  <img src="https://img.shields.io/badge/Nodens-0.3.1-blue?style=flat-square" alt="Nodens 0.3.1">
   <img src="https://img.shields.io/badge/C%2B%2B-23-blue?style=flat-square" alt="C++23">
   <img src="https://img.shields.io/badge/CMake-3.30-blue?style=flat-square" alt="CMake 3.30">
   <img src="https://img.shields.io/badge/platform-Linux-blue?style=flat-square" alt="Platform: Linux">
@@ -37,7 +37,7 @@ Nyar is designed to work as a separate module for the [Nodens](https://github.co
 
 ## Nodens version
 
-Nyar fetches Nodens with `FetchContent`, pinned to a release tag by `GIT_TAG` in `CMakeLists.txt` (currently `v0.2.0`). To move to a newer Nodens, change the tag and rebuild. While Nodens is at 0.x, a release that changes the API bumps the minor version, so expect to port the renamed types.
+Nyar fetches Nodens with `FetchContent`, pinned to a release tag by `GIT_TAG` in `CMakeLists.txt` (currently `v0.3.1`). To move to a newer Nodens, change the tag and rebuild. While Nodens is at 0.x, a release that changes the API bumps the minor version, so expect to port the renamed types.
 
 ## Development cycle
 

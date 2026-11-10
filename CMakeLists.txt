@@ -28,7 +28,7 @@ find_package(Vulkan REQUIRED)
 include(FetchContent)
 FetchContent_Declare(nodens
     GIT_REPOSITORY https://github.com/eldritch-codex/nodens.git
-    GIT_TAG        v0.2.0 # A release tag; change it to move to a newer Nodens release
+    GIT_TAG        v0.3.1 # A release tag; change it to move to a newer Nodens release
 )
 FetchContent_MakeAvailable(nodens)
 
